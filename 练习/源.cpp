@@ -2488,3 +2488,78 @@ using namespace std;
 //    cout << time.LessThan(time2) << endl;
 //    cout << time.Equal(time2);
 //}
+
+
+//coding game Power of Thor - Episode 1
+//int main()
+//{
+//    int light_x; // the X position of the light of power
+//    int light_y; // the Y position of the light of power
+//    int initial_tx; // Thor's starting X position
+//    int initial_ty; // Thor's starting Y position
+//    cin >> light_x >> light_y >> initial_tx >> initial_ty; cin.ignore();
+//
+//    // game loop
+//    while (1) {
+//        int remaining_turns; // The remaining amount of turns Thor can move. Do not remove this line.
+//        string direction;
+//        cin >> remaining_turns; cin.ignore();
+//        if (initial_tx < light_x && initial_ty < light_y)
+//        {
+//            direction = "SE";
+//            initial_tx++;
+//            initial_ty++;
+//        }
+//        else if (initial_tx < light_x && initial_ty > light_y)
+//        {
+//            direction = "NE";
+//            initial_tx++;
+//            initial_ty++;
+//        }
+//        else if (initial_tx > light_x && initial_ty < light_y)
+//        {
+//            direction = "SW";
+//            initial_tx--;
+//            initial_ty++;
+//        }
+//        else if (initial_tx > light_x && initial_ty > light_y)
+//        {
+//            direction = "NW";
+//            initial_tx--;
+//            initial_ty++;
+//        }
+//        else if (initial_tx < light_x)
+//        {
+//            direction = "E";
+//            initial_tx++;
+//        }
+//        else if (initial_tx > light_x)
+//        {
+//            direction = "W";
+//            initial_tx--;
+//        }
+//        else if (initial_ty < light_y)
+//        {
+//            direction = "S";
+//            initial_ty--;
+//        }
+//        else if (initial_ty > light_y)
+//        {
+//            direction = "N";
+//            initial_ty++;
+//        }
+//        // Write an action using cout. DON'T FORGET THE "<< endl"
+//        // To debug: cerr << "Debug messages..." << endl;
+//
+//
+//        // A single line providing the move to be made: N NE E SE S SW W or NW
+//        cout << direction << endl;
+//    }
+//}
+
+
+int main()
+{
+	
+	return 0;
+}
