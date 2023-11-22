@@ -2558,8 +2558,49 @@ using namespace std;
 //}
 
 
-int main()
-{
-	
-	return 0;
-}
+//class GeometricObject
+//{
+//
+//};
+//
+//class Circle :public GeometricObject
+//	//public: all public members in geometricobject are inherited as public members in circle
+//	//protected: a protected member of a class can be accesse from a derived class
+//{
+//
+//};
+
+//class B
+//{
+//public:
+//	int i;
+//protected:
+//	int j;
+//private:
+//	int k;
+//};
+//
+//class A :public B
+//{
+//public:
+//	void display()const
+//	{
+//		cout << j << endl;//fine
+//		cout << i << endl;//fine
+//		cout << k << endl;//wrong
+//	}
+//};
+//
+////						 public		|protected	|private
+////	class A:public B	|public		|protected	|private
+////	class A:protected B |protected	|protected	|private
+////	class A:private B	|private	| private	| private
+//
+//int main()
+//{
+//	A a;
+//	cout << a.i << endl;//fine
+//	cout << a.j << endl;//wrong
+//	cout << a.k << endl;//wrong
+//	return 0;
+//}
