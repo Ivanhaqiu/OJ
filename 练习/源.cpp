@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -2603,4 +2604,172 @@ using namespace std;
 //	cout << a.j << endl;//wrong
 //	cout << a.k << endl;//wrong
 //	return 0;
+//}
+
+//int main()
+//{
+//	int n, k;
+//	cin >> n;
+//	while (n--)
+//	{
+//		int sum = 0;
+//		cin >> k;
+//		for (int i = 1; i <= k; i++)
+//		{
+//			if (k % i == 0)
+//			{
+//				sum += i;
+//			}
+//		}
+//		cout << sum << endl;
+//	}
+//	return 0;
+//}
+
+//int leap_year(int y)
+//{
+//	if (y % 100 != 0 && y % 4 == 0)
+//		return 1;
+//	if (y % 100 == 0 && y % 400 == 0)
+//		return 1;
+//	return 0;
+//}
+//
+//int main()
+//{
+//	int n, y, m, d;
+//	int month[13] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+//	cin >> n;
+//	while (n--)
+//	{
+//		int sum = 0;
+//		cin >> y >> m >> d;
+//		for (int i = 0; i < m-1; i++)
+//		{
+//			sum += month[i];
+//		}
+//		sum += d;
+//		if (leap_year(y))
+//		{
+//			if (m>2)
+//			{
+//				sum++;
+//			}
+//		}
+//		cout << sum << endl;
+//	}
+//	return 0;
+//}
+
+
+////三角形个数--简单暴力解 193ms
+//int is_tri(int arr[], int i, int j, int k)
+//{
+//
+//	if (arr[i] + arr[j] > arr[k])
+//	{
+//		return 1;
+//	}
+//	return 0;
+//}
+//
+//int main()
+//{
+//	int arr[1001] = { 0 };
+//	int n;
+//	unsigned int sum = 0;
+//	cin >> n;
+//	for (int i = 0; i < n; i++)
+//	{
+//		cin >> arr[i];
+//	}
+//	sort(arr, arr + n);
+//	for (int i = 0; i < n - 2; i++)
+//	{
+//		for (int j = i + 1; j < n - 1; j++)
+//		{
+//			for (int k = j + 1; k < n; k++)
+//			{
+//				if (is_tri(arr, i, j, k))
+//				{
+//					sum++;
+//				}
+//			}
+//		}
+//	}
+//	cout << sum;
+//	return 0;
+//}
+
+
+//顺子/刻子+对子
+//麻将网解
+//int n, m, a[5000], s[5000] = { 0 }, s1[5000], ans[5000], ss = 0;
+//
+//bool hehe()
+//{
+//    bool v;
+//    for (int i = 1; i <= n; i++)
+//    {
+//        if (s[i] >= 2)
+//        {
+//            v = true;
+//            s[i] -= 2;
+//            for (int j = 1; j <= n + 2; j++)
+//            {
+//                s1[j] = s[j];
+//            }
+//            for (int j = 1; j <= n + 2; j++)
+//            {
+//                if (s1[j] < 0) 
+//                { 
+//                    v = false;
+//                    break; 
+//                }
+//                s1[j] %= 3;
+//                s1[j + 1] -= s1[j];
+//                s1[j + 2] -= s1[j];
+//            }
+//            s[i] += 2;
+//            if (v == true)
+//            {
+//                return 1;
+//            }
+//        }
+//    }
+//    return 0;
+//}
+//
+//int main()
+//{
+//    cin >> n >> m;
+//    for (int i = 1; i <= m * 3 + 1; i++)
+//    {
+//        cin >> a[i];
+//        s[a[i]]++;
+//    }
+//    bool v = false;
+//    for (int i = 1; i <= n; i++)
+//    {
+//        s[i]++;
+//        if (hehe())
+//        {
+//            v = true;
+//            ans[++ss] = i;
+//        }
+//        s[i]--;
+//    }
+//    for (int i = 1; i <= ss; i++)
+//    {
+//        cout << ans[i];
+//        if (i != ss)
+//        {
+//            cout << ' ';
+//        }
+//    }
+//    if (!v)
+//    {
+//        cout << "NO" << endl;
+//    }
+//        return 0;
 //}
