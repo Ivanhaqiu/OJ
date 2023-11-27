@@ -2773,3 +2773,82 @@ using namespace std;
 //    }
 //        return 0;
 //}
+
+
+//麻将自解-网解思路
+//int n, m;
+//int original[3002], rec[405] = { 0 };
+//
+//bool ting()
+//{
+//	bool solution;
+//	int copy[405];
+//	//刻子
+//	//顺子	
+//	//一对
+//	for (int i = 1; i <= n; i++)
+//	{
+//		//设i为对子
+//		//判断对子是否成立
+//		if (rec[i] >= 2)
+//		{
+//			solution = true;
+//			rec[i] -= 2;
+//			for (int j = 1; j <= n + 1; j++)
+//			{
+//				copy[j] = rec[j];
+//			}
+//			for (int j = 1; j <= n + 1; j++)//n+1判断最后还剩一张牌时会把n外的牌-1
+//			{
+//				if (copy[j] < 0)
+//				{
+//					//此解不成立
+//					solution = false;
+//					break;
+//				}
+//				copy[j] %= 3;//提出刻子
+//				copy[j + 1] -= copy[j];
+//				copy[j + 2] -= copy[j];//提出顺子
+//			}
+//			//复原牌数
+//			rec[i] += 2;
+//			if (solution)
+//			{
+//				return true;
+//			}
+//		}
+//	}
+//	return false;
+//}
+//
+//
+//int main()
+//{
+//	cin >> n >> m;
+//	//输入
+//
+//	for (int i = 0; i < m * 3 + 1; i++)
+//	{
+//		cin >> original[i];
+//		rec[original[i]]++;
+//	}
+//	//判断
+//	//假设把每一张牌加入手牌，尝试和牌
+//	bool solved = false;
+//	for (int i = 1; i <= n; i++)
+//	{
+//		rec[i]++;
+//		if (ting())
+//		{
+//			solved = true;
+//			cout << i << ' ';
+//		}
+//		rec[i]--;
+//	}
+//	if (!solved)
+//	{
+//		cout << "NO" << endl;
+//	}
+//	return 0;
+//}
+
