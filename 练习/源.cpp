@@ -2852,3 +2852,203 @@ using namespace std;
 //	return 0;
 //}
 
+
+//class base
+//{
+//public:
+//	base()
+//	{
+//		cout << "calling of base()" << endl;
+//	}
+//	base(int a)
+//	{
+//		cout << "calling of base(int a)" << endl;
+//	}
+//	~base()
+//	{
+//		cout << "calling of ~base()" << endl;
+//	}
+//};
+//
+//class son:public base
+//{
+//public:
+//	son()
+//	{
+//		cout << "calling of son()" << endl;
+//	}
+//	~son()
+//	{
+//		cout << "calling of ~son()" << endl;
+//	}
+//	
+//};
+//
+//void test()
+//{
+//	son s;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//
+//void displayGeometricObject(const GeometricObject& shape)
+//{
+//	cout << shape.getColor() << endl;
+//}
+//
+//int main()
+//{
+//	displayGeometricObject(GeometricObject("black", true));
+//	displayGeometricObject(Circle(5));
+//	displayGeometricObject(Rectangle(2, 3));
+//	return 0;
+//}
+//
+//virtual string toString()const;
+//dynamic binding
+//to enable dynamic binding for a function,you need:
+//1.the function must be defined virtual in the base class.
+//2.the variable that references the object must be passed be 
+//	reference or passed as a pointer in the virtual function.
+//
+// virtual double getArea() const = 0;
+
+
+//int main()
+//{
+//    int n;
+//    string a, b;
+//    cin >> n;
+//    while (n--)
+//    {
+//        int ans = 0;
+//        cin >> a >> b;
+//        for (int i = a.length()-1; i >= 0; i++)
+//        {
+//            if ()
+//            {
+//
+//            }
+//        }
+//        
+//    }
+//    return 0;
+//}
+
+
+//int main()
+//{
+//    int n, ans, count = 0;
+//    cin >> n;
+//    int arr[10000] = { 0 };
+//    for (int i = 0, left = 0, right = 0; i < n; i++)
+//    {
+//        cin >> arr[i];
+//        if (i > 0 && arr[left] != arr[right])
+//        {
+//            count--;
+//            right++;
+//        }
+//        else
+//        {
+//            count++;
+//            right++;
+//        }
+//        if (count <= 0)
+//        {
+//            count = 1;
+//            left = right;
+//            right++;
+//        }
+//        ans = arr[left];
+//    }
+//    cout << ans << endl;
+//
+//    return 0;
+//}
+
+
+//神奇的元素
+//int main()
+//{
+//	int n, m,count = 0;
+//	char arr[12][12] = { 0 };
+//	int copy[12][12] = { 0 };
+//	cin >> n >> m;
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//		{
+//			cin >> arr[i][j];
+//			if (arr[i][j] == '#')
+//			{
+//				copy[i][j] = -10;
+//			}
+//		}
+//	}
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//		{
+//			if (arr[i][j]== '#')
+//			{
+//				copy[i - 1][j - 1]++;
+//				copy[i - 1][j ]++;
+//				copy[i - 1][j + 1]++;
+//				copy[i][j - 1]++;
+//				copy[i][j + 1]++;
+//				copy[i + 1][j - 1]++;
+//				copy[i + 1][j]++;
+//				copy[i + 1][j + 1]++;
+//			}
+//		}
+//	}
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//		{
+//			if (copy[i][j] < 0)
+//			{
+//				cout << '#';
+//			}
+//			else
+//			{
+//				cout << copy[i][j];
+//			}
+//		}
+//		cout << endl;
+//	}
+//	return 0;
+//}
+
+
+//页码统计
+//int main()
+//{
+//	int n, num;
+//	cin >> n;
+//	while (n--)
+//	{
+//		int arr[10] = { 0 };
+//		cin >> num;
+//		for (int i = 1; i <= num; i++)
+//		{
+//			int k = i;
+//			while (k>0)
+//			{
+//				arr[k % 10]++;
+//				k /= 10;
+//			}
+//		}
+//		for (int i = 0; i <=9 ; i++)
+//		{
+//			cout << arr[i] << ' ';
+//		}
+//		cout << endl;
+//	}
+//	return 0;
+//}
