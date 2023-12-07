@@ -2918,61 +2918,39 @@ using namespace std;
 // virtual double getArea() const = 0;
 
 
-//int main()
-//{
-//    int n;
-//    string a, b;
-//    cin >> n;
-//    while (n--)
-//    {
-//        int ans = 0;
-//        cin >> a >> b;
-//        for (int i = a.length()-1; i >= 0; i++)
-//        {
-//            if ()
-//            {
-//
-//            }
-//        }
-//        
-//    }
-//    return 0;
-//}
+
+int main()
+{
+    int n, count = 1;
+    cin >> n;
+    int arr[10000] = { 0 };
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    int ans = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i]==ans)
+        {
+            count++;
+        }
+        else
+        {
+            count--;
+        }
+        if (count == 0)
+        {
+            ans = arr[i+1];
+        }
+    }
+    cout << ans << endl;
+
+    return 0;
+}
 
 
-//int main()
-//{
-//    int n, ans, count = 0;
-//    cin >> n;
-//    int arr[10000] = { 0 };
-//    for (int i = 0, left = 0, right = 0; i < n; i++)
-//    {
-//        cin >> arr[i];
-//        if (i > 0 && arr[left] != arr[right])
-//        {
-//            count--;
-//            right++;
-//        }
-//        else
-//        {
-//            count++;
-//            right++;
-//        }
-//        if (count <= 0)
-//        {
-//            count = 1;
-//            left = right;
-//            right++;
-//        }
-//        ans = arr[left];
-//    }
-//    cout << ans << endl;
-//
-//    return 0;
-//}
-
-
-//神奇的元素
+//吃饼干
 //int main()
 //{
 //	int n, m,count = 0;
@@ -3052,3 +3030,44 @@ using namespace std;
 //	}
 //	return 0;
 //}
+
+
+//进位
+//int main()
+//{
+//    int n;
+//    string a, b;
+//    cin >> n;
+//    while (n--)
+//    {
+//        int ans = 0;
+//        int count = 0;
+//        cin >> a >> b;
+//        int len1 = a.length();
+//        int len2 = b.length();
+//        if (len2>len1)
+//        {
+//            int len_diff = len2 - len1;
+//            a = string(len_diff, '0') + a;
+//        }
+//        else
+//        {
+//            int len_diff = len1 - len2;
+//            b = string(len_diff, '0') + b;
+//        }
+//
+//        for (int i = len1-1; i >= 0; i--)
+//        {
+//            int digits = a[i] - '0' + b[i] - '0' + count;
+//            count = digits / 10;
+//            if (count!=0)
+//            {
+//                ans++;
+//            }
+//        }
+//        cout << ans << endl;
+//    }
+//    return 0;
+//}
+
+
