@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <cctype>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
 //int main()
@@ -2918,38 +2919,6 @@ using namespace std;
 // virtual double getArea() const = 0;
 
 
-
-int main()
-{
-    int n, count = 1;
-    cin >> n;
-    int arr[10000] = { 0 };
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-    int ans = arr[0];
-    for (int i = 1; i < n; i++)
-    {
-        if (arr[i]==ans)
-        {
-            count++;
-        }
-        else
-        {
-            count--;
-        }
-        if (count == 0)
-        {
-            ans = arr[i+1];
-        }
-    }
-    cout << ans << endl;
-
-    return 0;
-}
-
-
 //吃饼干
 //int main()
 //{
@@ -3068,6 +3037,192 @@ int main()
 //        cout << ans << endl;
 //    }
 //    return 0;
+//}
+
+
+
+//罗马数字
+//int main()
+//{
+//	string roman[14] = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+//	int nums[14] = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+//	int n;
+//	string ans = "";
+//	cin >> n;
+//
+//	for (int i = 0; i < 13; i++)
+//	{
+//		int x = n;
+//		while(n/nums[i] != 0)
+//		{
+//			ans.append(roman[i]);
+//			n -= nums[i];
+//  		}
+//	}
+//	cout << ans;
+//	return 0;
+//}
+
+
+//神奇的元素
+//int main()
+//{
+//	int n, a, b, count = 1;
+//	cin >> n;
+//	cin >> a;
+//	for (int i = 1; i < n; i++)
+//	{
+//		cin >> b;
+//		if (count<=0)
+//		{
+//			cin >> a;
+//			count = 1;
+//			i++;
+//		}
+//		if (a==b)
+//		{
+//			count++;
+//		}
+//		else
+//		{
+//			count--;
+//		}
+//	}
+//	cout << a << endl;
+//	return 0;
+//}
+
+
+//素数求和
+//vector<bool> sieve(int N)
+//{
+//	vector<bool>isPrime(N + 1, true);
+//	isPrime[0] = isPrime[1] = false;
+//	
+//	for (int i = 2; i <= sqrt(N); i++)
+//	{
+//		if (isPrime[i])
+//		{
+//			for (int j = i*i; j <= N; j+=i)
+//			{
+//				isPrime[j] = false;
+//			}
+//		}
+//	}
+//	return isPrime;
+//}
+//int main()
+//{
+//	int n;
+//	cin >> n;
+//	unsigned long long sum = 0;
+//	vector<bool>isPrime = sieve(n);
+//	for (int i = 2; i <= n; i++)
+//	{
+//		if (isPrime[i])
+//		{
+//			sum += i;
+//		}
+//	}
+//	cout << sum << endl;
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 1, b = 5, c = 0,d = 3;
+//	int x1, x2, x3, x4;
+//	x1 = (a && b || (++c));
+//	x2 = ++a || ++b && ++c;
+//	a = -1;
+//	x3 = ++a && ++b && ++c;
+//	x4 = a > b ? a + 1 : c < d ? c + 3 : d + 1;
+//
+//	cout << x1 << ' ' << x2 << ' ' << x3 << ' ' << x4;
+//	return 0;
+//}
+
+//int main()
+//{
+//	for (int i = 1; i <= 4; i++)
+//	{
+//		for (int j = 1; j <= 4 - i; j++) cout << "+";
+//		for (int k = 0; k <= 2 * i + 1; k++)
+//			if (k <= 3)cout << "$";
+//			else cout << "*";
+//		cout << endl;
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int i, j, k[26] = { 0 };
+//	char s[] = "I love c++ very much!";
+//	for (i = 0; s[i]; i++)
+//		if (s[i] >= 'a' && s[i] <= 'z')k[s[i] - 'a']++;
+//	for (j = 0, i = 1; i < 26; i++)
+//		if (k[i] > k[j])j = i;
+//	cout << char(j + 'a') << ' ' << k[j] << endl;
+//	return 0;
+//}
+
+//int f(int n, int s[]) {
+//	static int m = s[n];
+//	return m + s[n];
+//}
+//int main()
+//{
+//	int s[] = { 5,4,3,2,1 };
+//	int i;
+//	for (int i = 1; i <=3; i++)
+//	{
+//		cout << f(i, s) << endl;
+//	}
+//	return 0;
+//}
+
+
+
+//int cnt, n;
+//unsigned long long sum = 0;
+//int pri[100000000], vis[100000000];
+//void Euler(int n)
+//{
+//    for (int i = 2; i <= n; ++i)
+//    {
+//        if (!vis[i])
+//        {
+//            pri[cnt++] = i;
+//        }
+//        for (int j = 0; j < cnt; ++j)
+//        {
+//            if (1ll * i * pri[j] > n)
+//                break;
+//            vis[i * pri[j]] = 1;
+//            if (i % pri[j] == 0)
+//            {
+//                break;
+//            }
+//        }
+//    }
+//}
+//
+//
+//int main()
+//{
+//    cin >> n;
+//    Euler(n);
+//    int i = 0;
+//    while (pri[i]!=0)
+//    {
+//        sum += pri[i];
+//        i++;
+//    }
+//    cout << sum;
+//	return 0;
 //}
 
 
