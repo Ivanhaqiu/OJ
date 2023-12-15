@@ -6,6 +6,7 @@
 #include <cctype>
 #include <algorithm>
 #include <vector>
+#include <fstream>
 using namespace std;
 
 //int main()
@@ -3226,3 +3227,179 @@ using namespace std;
 //}
 
 
+//练习题
+//int main()
+//{
+//	//(1) A
+//	//double _a = 1 - .1e-1;	合法
+//	//double b = 1 + 5e2.5;		非法，e后面不是整形
+//	//long do = 0xfdaL;			非法，关键词不能作为变量名
+//	//float 2_and = 1 -e-3;		非法，变量名不能以数字开头
+//
+//	//(2) C
+//	//int a(2), b(3);
+//	//cout << (++a || ++b && 0) << endl;
+//	//cout << b;	1 3
+//	//因为a为真，所以不会运行后面的代码，b不会++；
+//
+//	//(3) A
+//	//int n = 1;
+//	//int k = n++;
+//	//int k = n; ++n;
+//	//cout << k << ' ' << n << endl;
+//
+//	//(4) D
+//
+//	//(5) D
+//
+//	//(6) A
+//	//int a[] = { 1,2,3,4,5,6,7 };
+//	//int* p = a;
+//	//int* q = &a[5];
+//	//cout << *q-- << endl;
+//	//q = &a[5];
+//	//cout << *--q << endl;
+//	//q = &a[5];
+//	//cout << -- * q << endl;
+//	//q = &a[5];
+//	//cout << q-p << endl;
+//
+//	//(7) C
+//
+//	//(8) B
+//	//void fun(char s1[], char *s2) { while(*s2++=*s1++); 
+//
+//	//(9) C
+//
+//	//(10) C
+//
+//	//(11) D
+//
+//	//(12) C
+//
+//	//(13) A
+//
+//	//(14) A
+//
+//	//(15) D
+//
+//	//(16) B
+//	
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	ofstream output;
+//	//create a file
+//	output.open("d:\\C codes\\练习\\练习\\score.txt");
+//
+//	//write two lines 
+//	output << "John" << " " << "T" << " " << "Smith" << " " << 90 << endl;
+//	output << "Eric" << " " << "K" << " " << "Jones" << " " << 85;
+//
+//	output.close();
+//	cout << "Done" << endl;
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	ifstream input;
+//
+//	//open a file 
+//	input.open("d:\\C codes\\练习\\练习\\score.txt");
+//
+//	if (input.fail())
+//	{
+//		cout << "File does not exist" << endl;
+//		cout << "Exit program" << endl;
+//		return 0;
+//	}
+//
+//	//read data
+//	char firstName[80];
+//	char mi;
+//	char lastName[80];
+//	int score;
+//	while (!input.eof())
+//	{
+//		input >> firstName >> mi >> lastName >> score;
+//		cout << firstName << " " << mi << " " << lastName << " " << score << endl;
+//	}
+//
+//	input.close();
+//	cout << "Done" << endl;
+//
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//    ifstream input;
+//    input.open("string.in");
+//    ofstream output;
+//    output.open("string.out");
+//    int k;
+//    char s[110], t[110];
+//    input >> k;
+//
+//    input.get();
+//
+//    input.getline(s, 100);
+//    input.getline(t, 100);
+//
+//    string ans = "";
+//    for (int i = 0; i < k; i++)
+//    {
+//        ans += s[i];
+//    }
+//    ans += t;
+//    for (int i = ans.size() - 1; i >= 0; i--)
+//    {
+//        output << ans[i];
+//    }
+//    output << endl;
+//    input.close();
+//    output.close();
+//    return 0;
+//}
+
+
+//int main()
+//{
+//    ifstream input;
+//    input.open("jie.in");
+//    ofstream output;
+//    output.open("jie.out");
+//    int k, count = 0, ans = -1;
+//    char s[110];
+//    input >> k;
+//
+//    input.get();
+//
+//    for (int i = 0; i < k; i++)
+//    {
+//        input.getline(s, 100);
+//    }
+//    
+//    for (int i = 0; i < k; i++)
+//    {
+//        ans += s[i];
+//    }
+//    ans += t;
+//    for (int i = ans.size() - 1; i >= 0; i--)
+//    {
+//        output << ans[i];
+//    }
+//    output << endl;
+//    input.close();
+//    output.close();
+//    return 0;
+//}
