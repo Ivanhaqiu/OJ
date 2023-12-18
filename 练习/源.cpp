@@ -3284,11 +3284,375 @@ using namespace std;
 //	//(15) D
 //
 //	//(16) B
-//	
-//
+//	//int a = 400;
+//	//fstream aa("bb.txt", ios::out);
+//	//cout << a;	错误，standard output
+//	//aa << a;		正确
+//	//bb << a;		语法错误
+//	//aa.put(a);	错误，put()Inserts a character into the stream.
 //	return 0;
 //}
-
+//
+//二
+//（1）
+//1 1 0 3
+//void main() {
+//	int a = 1, b = 5, c = 0, d = 3;
+//	int x1, x2, x3, x4;
+//	x1 = (a && b || (++c));		
+//	//(1||(++c))	左边判断为真，右边表达式不执行	
+//	//x1 = 1, c = 0
+//	x2 = ++a || ++b && ++c;
+//	// 1 || ++b && ++c	左边判断为真，右边表达式不执行
+//	//x2 = 1, a = 2
+//	a = -1;
+//	//a = -1;
+//	x3 = ++a && ++b && ++c;
+//	// 0 && ++b && ++c	左边判断为假，右边表达式不执行
+//	// x3 = 0;
+//	x4 = a > b ? a + 1 : c < d ? c + 3 : d + 1;
+//	//x4 = c + 3 = 3
+//	cout << x1 << " " << x2 << " " << c << " " << x4 << endl;
+//	//		1			 1			  0			  3
+//}
+// 
+//(2)
+//+++$$$$
+//++$$$$**
+//+$$$$****
+//$$$$******
+//void main(){
+//for (int i = 1; i <= 4; i++) {							一共循环四次
+//	for (int j = 1; j <= 4 - i; j++) cout << "+";		分别打印3，2，1，0次‘+’
+//	for (int k = 0; k <= 2 * i + 1; k++)				分别打印4，6，8，10个字符
+//		if (k <= 3) cout << "$";						每次打印4次‘$’
+//		else cout << "*";								分别打印0，2，4，6次‘*’
+//	cout << endl;}
+//}
+//
+//(3)
+//c 2
+//(换行)
+//void main() {
+//	int i, j, k[26] = { 0 };
+//	char s[] = "I love c++ very much!";
+//	for (i = 0; s[i]; i++)		如果s[i] 不是最后一个字符，不是"\0"(NULL)
+//		if (s[i] >= 'a' && s[i] <= 'z') k[s[i] - 'a']++;	如果是小写，k[字母对应的数字++]，记录每个小写字母的个数
+//	for (j = 0, i = 1; i < 26; i++)
+//		if (k[i] > k[j]) j = i;		记录出现次数最多的小写字母
+//	cout << char(j + 'a') << ' ' << k[j] << endl;	打印出现次数最多的小写字母和出现的次数，最后打印换行
+//													虽然v和e的出现次数同样是2，但判断条件是 > ，因此c是答案
+//}
+//
+//(4)
+//8
+//7
+//6
+//(换行)
+//int f(int n, int s[]) {
+//	static int m = s[n];	//m储存在静态区,静态区变量只会声明一次，因此m只有第一次会被赋值
+//	return m + s[n];
+//}
+//void main() {
+//	int s[] = { 5, 4, 3, 2, 1 }; int i;
+//	for (i = 1; i <= 3; i++)
+//		cout << f(i, s) << endl;	//打印数组的第i个元素加上m，分别打印8，7，6（换行）
+//}
+// 
+//(5)
+//0constructor
+//1constructor
+//2constructor
+//0constructor
+//0distructor
+//2distructor
+//1distructor
+//0distructor
+//class A {
+//	int a;
+//public:
+//	A(int i = 0) : a(i) { cout << a << "constructor\n"; }		//打印(i)constructor
+//	~A() { cout << a << "distructor\n"; }						//打印(i)distructor
+//};
+//class B : public A {
+//	A a;
+//	int b;
+//public:
+//	B(int i = 1, int j = 2) : a(i), b(j) { cout << b << "constructor\n"; }
+//	~B() { cout << b << "distructor\n"; }
+//};
+//void main() {
+//	B ob1;
+//	//创建对象ob1，创建成员变量a，调用a的构造函数
+//	//0constructor
+//	//把i赋值给a，调用a的构造函数
+//	//1constructor
+//	//把j赋值给b，调用b的构造函数
+//	//2constructor
+//	A ob2;
+//	//创建对象ob2，调用a的构造函数
+//	// 0constructor
+//	//从最后创建的对象开始一个一个销毁
+//	//0distructor
+//	//2distructor
+//	//1distructor
+//	//0distructor
+//}
+//class A {
+//	int a;
+//public:
+//	A(int i = 0) : a(i) { cout << a << "constructor\n"; }		//打印(i)constructor
+//	~A() { cout << a << "distructor\n"; }						//打印(i)distructor
+//};
+//int main()
+//{
+//	A a;		通过验证最开始创建的对象成员会最后销毁，而接下来每次成员的赋值都会调用构造函数并且销毁上一个成员。
+//	a = 1;
+//	a = 2;
+//	a = 3;
+//	a = 4;
+//	a = 5;
+//	return 0;
+//}
+//
+//(6)
+//调用构造函数
+//li 成绩：75 86 98
+//调用析构函数
+//
+//class stud {
+//	char* name;
+//	float s[3];
+//public:
+//	stud(char* n, float p1[3]);
+//	~stud();
+//	void print() {
+//		cout << name << " " << "成绩：";		//打印	li 成绩：
+//		for (int i = 0; i < 3; i++) cout << s[i] << " ";	//打印	75 86 98
+//		cout << endl;		//打印(换行)
+//	}
+//};
+//stud::stud(char* n, float p1[3]) {
+//	name = new char[strlen(n) + 1];		
+//	strcpy(name, n);		//把字符串拷贝到name数组
+//	for (int i = 0; i < 3; i++) s[i] = p1[i];	//把所有数字拷贝到s[]
+//	cout << "调用构造函数" << endl;				//打印"调用构造函数"(换行)
+//}
+//stud::~stud() {
+//	if (name) delete[] name;		//释放name变量
+//	name = 0;
+//	cout << "调用析构函数" << endl;				//打印"调用析构函数"(换行)
+//}
+//
+//void main() {
+//	float ss[3] = { 75, 86, 98 };
+//	char a[3] = { "li" };
+//	stud p1(a, ss);
+//	//调用构造函数
+//	//完成数据拷贝，然后打印"调用构造函数"(换行)
+//	p1.print();
+//	//打印	li 成绩：75 86 98(换行)
+//	//最后销毁调用析构函数，打印	调用析构函数(换行)
+//}
+//
+//三.程序填空
+//1. 下面程序实现的功能是通过键盘输入一个 10～10000 以内的整数，如果输入的数不
+//在范围内，需要重新输入，如果在范围内，则判断该数是否是一个每位数字都相同的数。
+//请将程序补充完整。
+//void main() {
+//	int a, r1, r2;
+//	do {
+//		cout << "请输入一个 10~10000 的整数：";
+//		cin >> a;
+//	} while (__________a<10 || a>10000___________);
+//	do {
+//		r1 = a % 10;
+//		_________r2 = (a/10) % 10____________;
+//		a /= 10;
+//	} while (__________a>0 && r1==r2___________);
+//	if (__________a > 0___________)
+//		cout << "否" << endl;
+//	else
+//		cout << "是" << endl;
+//}
+//void main() {
+//	int a, r1, r2;
+//	do {
+//		cout << "请输入一个 10~10000 的整数：";
+//		cin >> a;
+//	} while (a<10 || a>10000);		//判断a是否属于范围内
+//	do {
+//		r1 = a % 10;				//令r1等于个位
+//		r2 = (a/10) % 10;			//令r2等于百位，当a是个位数时，假如所有位数相同那么会多执行一次循环，把a/10=0。									
+//		a /= 10;					//如果位数不相同则会保留剩下的数字
+//	} while (a>0 && r1==r2);
+//	if (a > 0)						//如果a有保留的数字，则a不符合要求
+//		cout << "否" << endl;
+//	else							//如果a=0，则a符合要求
+//		cout << "是" << endl;
+//}
+// 
+//2. 将字符串 st 从第一次出现字符 toFind（不包括该字符）的位置开始的后续全部字符复
+//制成为字符串 dt。例如，将字符串“student”中的字符“u”后面的字符串改为“abc”，
+//成为字符串“stuabc”。请将程序补充完整。
+//char* stcpy(char* d, char* s, char c) {
+//	for (; __________*s != c___________; s++);
+//	while (*d) {
+//		*++s = *d; _________d++____________;
+//	}
+//	*++s = '\0';
+//	__________return s___________;
+//}
+//void main() {
+//	char st[80], dt[80], toFind;
+//	cin.getline(st, 80); cin.getline(dt, 80); cin >> toFind;
+//	__________stcpy(dt, st, toFind)___________;
+//	cout << st << endl;
+//}
+//char* stcpy(char* d, char* s, char c) {
+//	for (; *s != c; s++);			//将s数组的下标移到cde位置
+//	while (*d) {					//当*d的值不等于'\0'或者(NULL)时循环
+//		*++s = *d; d++;				//将*d拷贝到s，(因为题目说了拷贝时不覆盖c，所以这里有前置++)。然后移动d的下标
+//	}
+//	*++s = '\0';					//完成拷贝以后将'\0'写到最后
+//	return s;						//返回值没作用，因为都是值传递。但是函数类型是char*，所以必须返回同类型。
+//}
+//void main() {
+//	char st[80], dt[80], toFind;
+//	cin.getline(st, 80); cin.getline(dt, 80); cin >> toFind;
+//	stcpy(dt, st, toFind);	
+//	cout << st << endl;
+//}
+//
+//3. 以下程序功能是：从键盘输入一个字符串，将小写字母全部转换成大写字母，然后将
+//整个字符串输出到一个磁盘文件“test.txt”中保存。输入的字符串以！结束。要求：每个
+//空行只能填写一条语句，不得使用逗号运算符。请将程序补充完整。
+//#include <iostream>
+//#include <fstream>
+//#include <stdlib.h>
+//using namespace std;
+//void main() {
+//	char str[100]; int i = 0;
+//	__________ofstream f("test.txt");___________;
+//	if (!f) exit(1);
+//	cin.getline(str, 100);
+//	while (str[i] && _________str[i]!='!'____________) {
+//		if (str[i] >= 'a' && str[i] <= 'z') __________str[i]-=32___________;
+//		f.put(str[i]);
+//		__________i++___________;
+//	}
+//	f.close();
+//}
+//void main() {
+//	char str[100]; int i = 0;
+//	ofstream f("test.txt");				// 创建输出文件流对象，打开文件test.txt  
+//	if (!f) exit(1);
+//	cin.getline(str, 100);
+//	while (str[i] && str[i]!='!') {		// 当字符串未结束且当前字符不是'!'时
+//		if (str[i] >= 'a' && str[i] <= 'z') str[i]-=32;		// 当字符串未结束且当前字符不是'!'时
+//		f.put(str[i]);					  
+//		i++;							// 移动到下一个字符
+//	}
+//	f.close();
+//}
+//
+//4. 下面是带头节点的单链表类 Chain 中的成员函数，实现的功能是查找值最大的节点的
+//下标，如果链表为空则返回 - 1。请将函数补充完整。
+//int Chain::Maxnode(char& x) {
+//	int i, j; Node* p, * q;
+//	if (__________head->next==NULL___________) return -1;
+//	i = 0; p = head->next; x = p->data; j = 1;
+//	_________q = p -> next____________;
+//	while (q != NULL) {
+//		if (p->data < q->data)
+//		{
+//			p = q; i = j; x = q->data;
+//		}
+//		__________q = p->next___________;
+//		j++;
+//	}
+//	__________return i___________;
+//}
+//int Chain::Maxnode(char& x) {
+//	int i, j; Node* p, * q;
+//	if (head->next==NULL) return -1;				// 如果链表为空，返回-1  
+//	i = 0; p = head->next; x = p->data; j = 1;		//令p指向第一个节点，x指向这个节点的数
+//													//(通常head不存储数据，只存储指向第一个节点的指针)
+//													//i为最大数的下标，j为q的当前下标
+//	q = p -> next;									//令q指向第二个节点
+//	while (q != NULL) {								//当链表还没结束时循环
+//		if (p->data < q->data)						//当p的数小于q的数时
+//		{
+//			p = q; i = j; x = q->data;				//更新p为q，更新i为j，更新x为q节点的数据
+//		}
+//		q = p->next;								//令q移动到下一个节点
+//		j++;										//j++更新q的坐标
+//	}
+//	return i;										//返回值最大的节点的值
+//}
+// example:
+//struct Node {
+//    int data;			//一般的链表节点结构
+//    Node* next;		//next指向下一个节点，有head和tail。head的next指向第一个节点，tail也就是最后一个节点指向NULL。
+//};
+//
+//四、编写程序
+//编写程序实现如下功能：先提示用户从键盘上输入9个整数，将其中值最大的元素
+//置于一个3×3矩阵的中心，其余8个元素按照从小到大的顺序按顺时针次序置于矩阵其他
+//位置，最后将矩阵按照行列格式输出。
+//要求：
+//1）在主函数中实现输入元素和输出矩阵；
+//2）元素排序和写入矩阵用函数实现，函数原型为：void fun(int input[9], int output[3][3]);
+//void fun(int input[9], int output[3][3])
+//{
+//	for (int i = 0; i < 9; i++)				//冒泡排序
+//	{
+//		for (int j = 0; j < 8 - i; j++)
+//		{
+//			if (input[j] > input[j + 1])
+//			{
+//				int tmp = input[j];
+//				input[j] = input[j + 1];
+//				input[j + 1] = tmp;
+//			}
+//		}
+//	}									
+//	int k = 0;
+//	for (int i = 0; i < 3; i++)
+//	{
+//		for (int j = 0; j < 3; j++)
+//		{
+//			if (i==1 && j==1)
+//			{
+//				output[i][j] = input[8];	//把矩阵中间元素替换为最大的数
+//				j++;
+//			}
+//			output[i][j] = input[k];
+//			k++;
+//		}
+//	}
+//	
+//}
+//int main()
+//{
+//	int input[9], output[3][3];
+//	cout << "请输入9个元素:" << endl;
+//	for (int i = 0; i < 9; i++)
+//	{
+//		cin >> input[i];
+//	}
+//	fun(input, output);
+//	cout << "输出矩阵:" << endl;
+//	for (int i = 0; i < 3; i++)
+//	{
+//		for (int j = 0; j < 3; j++)
+//		{
+//			cout << setw(3) << right << output[i][j] << ' ';
+//		}
+//		cout << endl;
+//	}
+//	return 0;
+//}
 
 //int main()
 //{
@@ -3372,32 +3736,78 @@ using namespace std;
 //}
 
 
+
 //int main()
 //{
 //    ifstream input;
 //    input.open("jie.in");
 //    ofstream output;
 //    output.open("jie.out");
-//    int k, count = 0, ans = -1;
-//    char s[110];
+//    int k, len = 100000, ans = -1;
+//    char ch[100000];
 //    input >> k;
-//
 //    input.get();
 //
 //    for (int i = 0; i < k; i++)
 //    {
-//        input.getline(s, 100);
+//        input >> ch;
+//        for (int j = 0; ch[j]!='\0'; j++)
+//        {
+//            if(ch[j]=='j' && ch[j+1]=='i' && ch[j+2] == 'e')
+//            {
+//                if (strlen(ch)<len)
+//                {
+//                    len = strlen(ch);
+//                    ans = i+1;
+//                }
+//            }
+//        }
 //    }
+//
+//    output << ans << endl;
+//    input.close();
+//    output.close();
+//    return 0;
+//}
+
+
+
+//int main()
+//{
+//    ifstream input;
+//    input.open("jie.in");
+//    ofstream output;
+//    output.open("jie.out");
+//    int t, n;
+//    string mon, day;
+//    string m[50], d[50];
 //    
-//    for (int i = 0; i < k; i++)
+//    input >> t;
+//    input.get();
+//    
+//    for (int i = 0; i < t; i++)
 //    {
-//        ans += s[i];
+//        input >> n;
+//        input.get();
+//        for (int j = 0; j < n; j++)
+//        {
+//            input >> m[j] >> d[j];
+//            input.get();
+//        }
+//        input >> mon >> day;
+//        input.get();
+//        for (int i = 0; i < n; i++)
+//        {
+//            if (!(mon.compare(m[i])))
+//            {
+//                while ()
+//                {
+//
+//                }
+//            }
+//        }
 //    }
-//    ans += t;
-//    for (int i = ans.size() - 1; i >= 0; i--)
-//    {
-//        output << ans[i];
-//    }
+//
 //    output << endl;
 //    input.close();
 //    output.close();
