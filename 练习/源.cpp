@@ -3383,7 +3383,7 @@ using namespace std;
 //};
 //void main() {
 //	B ob1;
-//	//创建对象ob1，创建成员变量a，调用a的构造函数
+//	//创建对象ob1，因为是子类，先创建父类A，调用a的构造函数
 //	//0constructor
 //	//把i赋值给a，调用a的构造函数
 //	//1constructor
@@ -3605,7 +3605,7 @@ using namespace std;
 //2）元素排序和写入矩阵用函数实现，函数原型为：void fun(int input[9], int output[3][3]);
 //void fun(int input[9], int output[3][3])
 //{
-//	for (int i = 0; i < 9; i++)				//冒泡排序
+//	for (int i = 0; i < 8; i++)				//冒泡排序
 //	{
 //		for (int j = 0; j < 8 - i; j++)
 //		{
@@ -3812,4 +3812,406 @@ using namespace std;
 //    input.close();
 //    output.close();
 //    return 0;
+//}
+
+
+//2021试卷
+// 一.
+//1.Which of the following data types has a typical range of 0 to 232-1?
+//	C.unsigned int
+// 
+//2.Which one of the following is NOT a valid identifier in C++?
+//	D.air-5		命名只能包含数字，字母和下划线。只能是字母或下划线开头
+// 
+//3.Which of the following is a valid input statement?
+//	A.cin >> a;
+//
+//4.Which of the following statements sends a newline character to the standard output device?
+//	D.cout << '\n';
+//
+//5.Consider the following statements:
+//int a = 10:
+//const int* p = &a;
+//Which of the following is illegal ?
+//	B.cout << (*p)++;
+//int main()
+//{
+//	int a = 10;
+//	const int* p = &a;
+//	cout << p++;
+//	cout << (*p)++;
+//	cout << ++a;
+//	return 0;
+//	//一. const修饰指针——常量指针： const int *p=&a；
+//	//特点：常量指针的指向可以修改，但指针指向的值不可以改；
+//	//二.const修饰常量 ——指针常量    int* const p = &a；
+//	//特点：常量指针指向的值可以修改，但指针的指向不可以改；
+//	//三.const 既修饰指针，又修饰常量	const int* const p=&a；
+//	//特点：指针的指向何指针指向的值都不可以修改；
+//}
+//
+//6.How many times will the following loop print hello?
+//int i = 1;
+//while (i++ <= 28) {
+//	cout << "hello";
+//	if (i % 2 == 0 || i % 3 == 0)i *= 2;
+//}
+//	C.6
+//int main()
+//{
+//	int i = 1;
+//	while (i++ <= 28) {			//i先使用后++
+//		cout << "hello";
+//		if (i % 2 == 0 || i % 3 == 0)i *= 2;
+//	}
+//	return 0;
+//}
+//
+//7.Which line of the following code contains syntax error?
+//class Rectangle {			// line 1
+//	unsigned int w;			// line 2
+//	Rectangle() :w(3)		// line 3
+//}							// line 4
+//	C.3 and 4
+//class Rectangle {			// line 1
+//	unsigned int w;			// line 2
+//	Rectangle() :w(3);		// line 3		//初始化列表结束后应有{}而不是';'
+//}							// line 4		//缺少';'
+//
+//8.In C++, a function prototype is?
+//	A. a declaration but not a definition
+//
+//9.If int a = 2021, which of the following statement will print out 2022?
+//	B. cout << ++ a;
+//
+//10.Which of the following options is NOT a return type for a function in c++?
+//	A.int::
+//
+//二.
+//1.
+//The number is : twothree *
+//int main()
+//{
+//	int a = 2021, b = 3;
+//	cout << "The number is: ";	//打印 "The number is: ":
+//	switch (a % b) {			//a%b = 2;
+//	case 1:cout << "one";
+//	case 2:cout << "two";		//打印two	由于没有break所以会继续执行下一个case语句直至结束
+//	case 3:cout << "three";		//打印three
+//	case 4:cout << "*";			//打印*
+//	}
+//	return 0;
+//}
+//
+//2.
+//5-6-8
+//int main()
+//{
+//	char a[6];
+//	for (char c = 'A'; c < 'G'; c++)
+//		a[c - 'A'] = c;							//把{A,B,C,D,E,F}存进a[]
+//	int n = 2021, r = n % 16;					//r = 5
+//	cout << r << '-';							//打印5-
+//	n /= 16;	r = n % 15;						//n = 126, r = 6
+//	cout << ((r > 9) ? a[r - 10] : r) << '-';	//因为r < 9打印6-
+//	n /= 15;	r = n % 14;						//n = 8, r = 8
+//	cout << ((r > 9) ? a[r - 10] : r);			//因为r < 9打印8
+//	return 0;
+//}
+//
+//3.
+//(a,b): 21,20---(x,y): 20,21
+//void swap(int, int);
+//int main() {
+//	int x(20), y(21);
+//	swap(x, y);								//打印(a,b): 21,20---
+//	cout << "(x,y): " << x << "," << y;		//打印(x,y): 20,21
+//	return 0;
+//}
+//
+//void swap(int a, int b) {							//值传递，x和y的值不变
+//	int t = a + b;									//t = 41
+//	a = t - a; b = t - a;							//a = 20, b = 21
+//	cout << "(a,b): " << a << "," << b << "---";	
+//}
+//
+//4.
+//Hello,e,o,C+2
+//int main()
+//{
+//	char cstr1[] = { "Hello" };
+//	char cstr2[] = { "C-+" };
+//	char* pCstr2 = cstr2;												//指向C
+//	cout << cstr1 << ',' << cstr1[1] << ',' << *(cstr1 + 4) << ',';		//打印Hello,e,o,
+//	cout << *pCstr2; pCstr2 += 2;										//打印C		pCstr2指向+
+//	cout << *pCstr2 << pCstr2 - cstr2;									//打印+		打印两个地址的差
+//	return 0;
+//}
+//
+//5.
+//Tian Wen Hao has Landed Mars.
+//int main()
+//{
+//	string a[2][4] = { "Tian ","Landed on ","Ren ","Wen ",
+//						"has ","Hao ","love ","Mars." };
+//	//cout << a[0][0] << a[0][3];
+//	//cout << *(a[1] + 1) << *(a[1]);
+//	//cout << *(*a + 1) << *(*(a + 1) + 3);
+//	return 0;
+//}
+//
+//6.
+//14 2,8 2,16 0,0 2
+//void func(int x, int& y)
+//{
+//	x = x + y;
+//	y = x % 4;
+//	cout << x << " " << y << ",";
+//}
+//int main()
+//{
+//	int x = 8, y = 6;
+//	func(x, y);
+//	cout << x << " " << y << ",";
+//	func(x, x);
+//	cout << x << " " << y << " ";
+//	return 0;
+//}
+//
+//7.
+//AA BB A B
+//class A {
+//public:
+//	virtual char toString() { return 'A'; }
+//	void toDoubleString() { cout << "AA "; }
+//};
+//class B:public A {
+//public:
+//	char toString() { return 'B'; }
+//	void toDoubleString() { cout << "BB "; }
+//};
+//void func(A& obj) {
+//	cout << obj.toString() << " ";
+//}
+//int main()
+//{
+//	A a; B b;
+//	a.toDoubleString(); b.toDoubleString();
+//	func(a);	func(b);
+//	return 0;
+//}
+//
+//三.
+//The following class is a stack holds the int type values.A stack is a data structure that holds
+//data in a last-in, first-out fashion.Please fill the vacant of the program.Note that : top function
+//gets the last integer; pop function deletes the last integer; the first and last integers are stored in
+//s[0] and s[size - l] respectively.
+//class StackOfInteger {
+//public:
+//	StackOfInteger(int capacity) {
+//		__________ = capacity;
+//		size = 0;
+//		s = new int[capacity];
+//	}
+//	~StackOfInteger();
+//	__________
+//		int top() {
+//		if (size) return __________;
+//		else return -1;
+//	}
+//	void pop() { __________ }
+//	void print() {
+//		cout << "capacity: " << capacity << "," << "size: " << size << "\n";
+//		for (int i = 0; i < size; i++)
+//			cout << s[i] << ' ';
+//		cout << '\n';
+//	}
+//	int* s;
+//	int capacity, size;
+//};
+//void StackOfInteger::push(int value) {
+//	if (size == capacity) {
+//		int* tmpS = new int[capacity * 2];
+//		for (int i = 0; i < size; i++)tmpS[i] = s[i];
+//		__________
+//		s = tmpS;
+//		__________
+//	}
+//	__________
+//}
+//StackOfInteger::~StackOfInteger(){ __________ }
+//
+//int main() {
+//	__________ ss(4);
+//	for (int i = 1; i < 5; i++) ss.push(i);
+//	ss.print();
+//	ss.push(16);	ss.print();
+//	ss.push(7);		ss.pop();	ss.print();
+//	return 0;
+//}
+//capacity: 4, size : 4
+//1 2 3 4
+//capacity : 8, size : 5
+//1 2 3 4 16
+//capacity : 8, size : 5
+//1 2 3 4 16
+//class StackOfInteger {
+//public:
+//	StackOfInteger(int capacity) {
+//		this->capacity = capacity;
+//		size = 0;
+//		s = new int[capacity];
+//	}
+//	~StackOfInteger();
+//	void push(int value);
+//	int top() {
+//		if (size) return s[size-1];
+//		else return -1;
+//	}
+//	void pop() { size--; }
+//	void print() {
+//		cout << "capacity: " << capacity << "," << "size: " << size << "\n";
+//		for (int i = 0; i < size; i++)
+//			cout << s[i] << ' ';
+//		cout << '\n';
+//	}
+//	int* s;
+//	int capacity, size;
+//};
+//void StackOfInteger::push(int value) {
+//	if (size == capacity) {
+//		int* tmpS = new int[capacity * 2];
+//		for (int i = 0; i < size; i++)tmpS[i] = s[i];
+//		delete []s;
+//		s = tmpS;
+//		capacity *= 2;
+//	}
+//	s[size++] = value;
+//}
+//StackOfInteger::~StackOfInteger() { delete s; }
+//
+//int main() {
+//	StackOfInteger ss(4);
+//	for (int i = 1; i < 5; i++) ss.push(i);
+//	ss.print();
+//	ss.push(16);	ss.print();
+//	ss.push(7);		ss.pop();	ss.print();
+//	return 0;
+//}
+//四.
+//1.	完全不考虑时间，暴力解。。。
+//double getSeriesValue(int n)
+//{
+//	int sum = 1;
+//	if (n==1)
+//	{
+//		return 1;
+//	}
+//	else if (n<1)
+//	{
+//		return 0;
+//	}
+//	else
+//	{
+//		for (int i = 2; i <= n; i++)
+//		{
+//			sum += i;
+//		}
+//		return (n*1.0 / sum) + getSeriesValue(n - 1);
+//	}
+//}
+//int main()
+//{
+//	int n;
+//	cout << "Please input n: ";
+//	cin >> n;
+//	if (getSeriesValue(n))
+//	{
+//		cout << getSeriesValue(n);
+//	}
+//	else
+//	{
+//		cout << "Invalid n!";
+//	}
+//	return 0;
+//}
+//
+//2.
+//int main()
+//{
+//	int n, a, b, sum = 0;
+//	char arr[31];
+//	cin >> n;
+//	getchar();
+//	while (n--)
+//	{
+//		bool prime = true;
+//		scanf("%s", arr);
+//		for (int i = 0; i < strlen(arr); i++)
+//		{
+//			a = arr[i] - 48;
+//			b = pow(2, strlen(arr) - i-1);
+//			sum += a * b;
+//		}
+//		for (int i = 2; i <= sqrt(sum); i++)
+//		{
+//			if (sum%i==0)
+//			{
+//				prime = false;
+//			}
+//		}
+//		if (prime)
+//		{
+//			printf("%s is a prime number.\n", arr);
+//		}
+//		else
+//		{
+//			printf("%s is NOT a prime number.\n", arr);
+//		}
+//	}
+//	return 0;
+//}
+//
+//3.
+//int main()
+//{
+//	int n,layers;
+//	int m[65];
+//	cin >> n;
+//	while (n--)
+//	{
+//		cin >> layers;
+//		cin >> m[0];
+//		for (int i = 1; i < layers; i++)
+//		{
+//			cin >> m[i];
+//			if (m[i]<m[i - 1])
+//			{
+//				cout << "The input number should be larger than " << m[i - 1] << endl;
+//				i--;
+//				layers--;
+//			}
+//		}
+//		int col = m[layers - 1];
+//		for (int i = 0; i < layers; i++)
+//		{
+//			for (int j = 0; j < m[layers-1]*2; j++)
+//			{
+//				if (j<(col-m[i]))
+//				{
+//					cout << '_';
+//				}
+//				else if (j<(col+m[i]))
+//				{
+//					cout << '*';
+//				}
+//				else
+//				{
+//					cout << '_';
+//				}
+//			}
+//			cout << endl;
+//		}
+//	}
+//	return 0;
 //}
